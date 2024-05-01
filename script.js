@@ -1,21 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const text = "█hackthem█";
-    const delay = 200; // milliseconds
-    const cursor = document.getElementById('cursor');
-    let i = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const inputElement = document.getElementById("input");
+    const outputElement = document.getElementById("output");
 
-    function type() {
-        if (i < text.length) {
-            document.getElementById('hack-text').textContent += text.charAt(i);
-            i++;
-            setTimeout(type, delay);
-        } else {
-            // Animation finished, show menu after a delay
-            setTimeout(function() {
-                document.getElementById('menu').style.display = 'block';
-            }, 1000); // Adjust the delay as needed
+    inputElement.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            const command = inputElement.value.trim().toLowerCase();
+            inputElement.value = ""; // Clear input field
+            
+            // Send command to backend
+            fetch("/execute", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ command: command })
+            })
+            .then(response => response.json())
+            .then(data => {
+                outputElement.innerHTML += data.output + "<br>";
+                outputElement.scrollTop = outputElement.scrollHeight; // Scroll to bottom
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
         }
-    }
-
-    type();
+    });
 });
