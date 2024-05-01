@@ -17,6 +17,7 @@ body {
 .hack-animation {
     overflow: hidden;
     white-space: nowrap;
+    font-size: 36px; /* Larger font size */
 }
 
 #cursor {
@@ -30,4 +31,23 @@ body {
     50% {
         opacity: 0;
     }
+}
+
+.menu {
+    display: none; /* Initially hidden */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu ul li a {
+    color: #0F0;
+    text-decoration: none;
 }
