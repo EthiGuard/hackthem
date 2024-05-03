@@ -3,26 +3,26 @@ body {
 }
 
 .terminal {
-    width: 80%;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80;
+    max-width: 600;
+    margin: 50 auto;
+    padding: 20;
+    border: 1 solid #ccc;
+    border-radius: 5;
+    box-shadow: 0 0 10 (0, 0, 0, 0.1);
 }
 
 .output {
-    min-height: 200px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    min-height: 200;
+    border-bottom: 1 solid #ccc;
+    margin-bottom: 10;
+    padding-bottom: 10;
     overflow-y: scroll;
 }
 
 .input {
-    width: 100%;
-    padding: 10px;
+    width: 100;
+    padding: 10;
     border: none;
     outline: none;
     font-family: monospace;
